@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find ~/.password-store/ -name *.gpg -type f -print | awk -F '.password-store/' '{print $2}' | awk -F '.gpg' '{print $1}' | dmenu -l 30 | xargs -r pass show | tr -d '\n' | xclip -selection clipboard
+

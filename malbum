@@ -1,0 +1,6 @@
+#!/bin/bash
+
+album=$(mpc list Album | dmenu -l 30)
+mpc clear
+mpc searchadd album "$album"
+mpc play

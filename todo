@@ -1,0 +1,3 @@
+#!/bin/bash
+
+st nvim $HOME/docs/notebook/misc/to-do.md

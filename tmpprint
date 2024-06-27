@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ls /tmp/ | grep ".*\.pdf$" | dmenu -l 30 | awk '{printf("/tmp/%s", $0)}' | xargs -r lp -o media=letter -o sides=two-sided-long-edge

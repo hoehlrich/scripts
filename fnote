@@ -1,0 +1,11 @@
+#!/bin/bash
+
+shopt -s globstar
+
+ls $VIMWIKI_PATH/**/*.md | 
+    awk -F "/" '{ for (i = 6; i < NF; i++) { printf("%s/", $i) } print $NF }' | \
+    dmenu -l 30 | \
+    awk '{printf("%s%s",ENVIRON["VIMWIKI_PATH"], $0)}' | \
+    xargs -r cat | \
+    pandoc -t pdf -f markdown+lists_without_preceding_blankline | \
+    zathura -
